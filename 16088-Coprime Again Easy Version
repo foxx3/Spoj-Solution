@@ -1,0 +1,48 @@
+#include<stdio.h>
+
+long long int gcd(long long int u, long long int v)
+{
+  int shift;
+  if (u == 0) return v;
+  if (v == 0) return u;
+  for (shift = 0; ((u | v) & 1) == 0; ++shift) {
+         u >>= 1;
+         v >>= 1;
+  }
+  while ((u & 1) == 0)
+    u >>= 1;
+  do {
+       while ((v & 1) == 0) 
+           v >>= 1;
+       if (u > v) {
+         unsigned int t = v; v = u; u = t;} 
+       v = v - u;                       
+     } while (v != 0);
+  return u << shift;
+}
+
+int main()
+{
+    int t;
+    long long int n,i,count;
+    scanf("%lld",&t);
+    while(t--)
+    {
+              count=1;
+              scanf("%lld",&n);
+              if(n%2==1)
+              {
+                        for(i=1;i<n;i++)
+                                        if(gcd(n,i)==1)
+                                                       count=(count*i)%n;
+              }
+              else
+              {
+                  for(i=1;i<n;i+=2)
+                                  if(gcd(n,i)==1)
+                                                 count=(count*i)%n;
+              }
+              printf("%lld\n",count);
+    }
+    return 0;
+}
