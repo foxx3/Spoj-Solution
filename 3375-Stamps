@@ -1,0 +1,50 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<algorithm>
+#include<vector>
+
+#define MOD 1000000007
+#define LL long long int
+
+using namespace std;
+
+bool cmp( int a, int b ) 
+{
+   return a > b;
+}  
+
+int main()
+{
+        int t=1;
+        scanf("%d",&t);
+        for(int l=1;l<=t;l++)
+        {
+                int sum,n,p[100000];
+                cin>>sum>>n;
+                for(int i=0;i<n;i++)
+                        cin>>p[i];
+                sort(p,p+n,cmp);
+                int res=0,counter=0,status = 0;
+                for(int i=0;i<n;i++)
+                {
+                        res = res + p[i];
+                        counter++;
+                        if(res>=sum)
+                        {
+                                status = 1;
+                                break;
+                        }
+                }
+                if(status == 1)
+                {
+                        printf("Scenario #%d:\n%d\n",l,counter);
+                }
+                else
+                {
+                        printf("Scenario #%d:\nimpossible\n",l);
+                }
+        }
+        return 0;
+}
