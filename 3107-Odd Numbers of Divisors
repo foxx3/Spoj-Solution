@@ -1,0 +1,54 @@
+#include<cstdio>
+#include<iostream>
+#include<cmath>
+
+using namespace std;
+#define ll unsigned long long int
+
+int issq(ll n)
+{
+    ll temp=(ll)sqrt(n);
+    if((temp*temp)==n)
+                      return 1;
+    else
+        return 0;
+}
+
+ll NoD(ll num)
+{
+    ll count=0;
+    ll upper=(ll)sqrt(num);
+    for(int i=2;i<=upper;i++)
+    {
+        ll temp=num;
+        if(num%i==0)
+        {
+            count++;
+            if((num/i)!=i)
+             count++;
+        }
+    }
+    return count;
+}
+
+int main()
+{
+    int t,k;
+    ll a,b,res;
+    cin>>t;
+    while(t--)
+    {
+              res=0;
+              cin>>k>>a>>b;
+              for(ll i=a;i<=b;i++)
+              {
+                     if(issq(i))
+                     {
+                                if(NoD(i)==k)
+                                     res++;
+                     }
+              }
+              cout<<res<<endl;
+    }
+    return 0;
+}
