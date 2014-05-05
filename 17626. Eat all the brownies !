@@ -1,0 +1,27 @@
+#include<iostream>
+#include<cstdio>
+#include<cmath>
+
+using namespace std;
+int main()
+{
+    long long int t,n;
+    cin>>t;
+    while(t--)
+    {
+              long long int sum=0;
+              cin>>n;
+              if(n==1)
+                      cout<<"0"<<endl;
+              else if(n==2)
+                   cout<<"1"<<endl;
+              else
+              {
+                  n--;
+                  //sum=(long long int)(1+sqrt((double)(1+8*n)))/2;
+                  sum=(long long int)floor(0.5+sqrt(2*n));
+                  cout<<sum<<endl;
+              }
+    }
+    return 0;
+}
