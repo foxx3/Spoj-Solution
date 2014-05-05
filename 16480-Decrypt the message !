@@ -1,0 +1,70 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+
+using namespace std;
+int main()
+{
+    int t,k;
+    char str[100000];
+    cin>>t;
+    while(t--)
+    {
+              cin>>k;
+              cin>>str;
+              if(k<=25)
+              {
+                       int l=strlen(str);
+                       for(int i=0;i<l;i++)
+                       {
+                               if(str[i]=='.')
+                                              cout<<" ";
+                               else if(str[i]>=97)
+                               {
+                                   int temp;
+                                   temp=str[i]-96;
+                                   temp+=k;
+                                   temp%=26;
+                                   cout<<(char)(temp+96);
+                               }
+                               else
+                               {
+                                   int temp;
+                                   temp=str[i]-64;
+                                   temp+=k;
+                                   temp%=26;
+                                   cout<<(char)(temp+64);
+                               }
+                       }
+              }
+              else
+              {
+                  int l=strlen(str);
+                  k-=26;
+                  for(int i=0;i<l;i++)
+                  {
+                          if(str[i]=='.')
+                                         cout<<" ";
+                          else if(str[i]>=97)
+                          {
+                               int temp;
+                               temp=str[i]-96;
+                               temp+=k;
+                               temp%=26;
+                               cout<<(char)(temp+64);
+                          }
+                          else
+                          {
+                              int temp;
+                              temp=str[i]-64;
+                              temp+=k;
+                              temp%=26;
+                              cout<<(char)(temp+96);
+                          }
+                  }
+              }
+              cout<<endl;
+    }
+    return 0;
+}
