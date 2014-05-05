@@ -1,0 +1,59 @@
+#include <cmath>
+#include <cctype>
+#include <cstdio>
+#include <cstring>
+#include <cstdlib>
+#include <iostream>
+#include <algorithm>
+
+#define MOD 1000000007LL
+#define LL long long int
+#define ULL unsigned long long
+#define MAX(a,b) ((a)>(b)?(a):(b))
+#define MIN(a,b) ((a)<(b)?(a):(b))
+#define ABS(x)   ((x)<0?-(x):(x))
+#define si(n) scanf("%d",&n)
+#define sf(n) scanf("%f",&n)
+#define sl(n) scanf("%lld",&n)
+#define slu(n) scanf("%llu",&n)
+#define sd(n) scanf("%lf",&n)
+#define ss(n) scanf("%s",n)
+#define pnl printf("\n")
+
+using namespace std;
+
+void solve()
+{
+     int n,i,h,l,f1,f2;
+     si(n);
+     for(i=30;i>=0;i--)
+         if(n&(int)(pow(2,i)))
+                        break;
+     h=i;
+     l=0;
+     while(h-->=l++)
+     {
+                f1=f2=0;
+                if(n&(int)(pow(2,h)))
+                               f1=1;
+                if(n&(int)(pow(2,l)))
+                               f2=1;
+                if((f1==1)&&(f2==1))
+                       continue;
+                else if(f1==1)
+                     n=n^(int)(pow(2,l));
+                else
+                    n=n^(int)(pow(2,h));
+     }
+     cout<<n<<endl;
+}
+int main() 
+{
+    int t=1;
+    scanf("%d",&t);
+    while(t--)
+    {
+              solve();
+    }
+	return 0;
+}
