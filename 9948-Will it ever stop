@@ -1,0 +1,31 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<algorithm>
+#include<vector>
+
+bool cmp( int a, int b ) 
+{
+   return a > b;
+}
+
+#define MOD 1000000007
+#define LL long long int
+
+using namespace std;
+
+int main()
+{
+        //int t=1;
+        //scanf("%d",&t);
+        LL n;
+        while(scanf("%lld",&n)!=EOF)
+        {
+                if((n&(n-1))==0)
+                        printf("TAK\n");
+                else
+                        printf("NIE\n");
+        }
+        return 0;
+}
