@@ -1,0 +1,46 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+
+using namespace std;
+
+int main()
+{
+    int t,n;
+    float cr,sum,tot,g;
+    char gr;
+    cin>>t;
+    while(t--)
+    {
+              cin>>n;
+              sum=tot=0.0;
+              while(n--)
+              {
+                        cin>>cr>>gr;
+                        sum=cr+sum;
+                        switch(gr)
+                        {
+                                  case 'S':
+                                       g=10.0;
+                                       break;
+                                  case 'A':
+                                       g=9.0;
+                                       break;
+                                  case 'B':
+                                       g=8.0;
+                                       break;
+                                  case 'C':
+                                       g=7.0;
+                                       break;
+                                  case 'D':
+                                       g=6.0;
+                                       break;
+                                  case 'E':
+                                       g=5.0;
+                        }
+                        tot=tot+(cr*g);
+              }
+              printf("%.2f\n",(tot/sum));
+    }
+    return 0;
+}
