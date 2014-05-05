@@ -1,0 +1,85 @@
+#include<iostream>
+#define llu unsigned long long int
+#include<cstdio>
+#include<cmath>
+using namespace std;
+
+int prime(llu p)
+{
+    if(p%2==0)
+              return 0;
+    int upper=(int)sqrt(p);
+    for(int i=3;i<=upper;i+=2)
+            if(p%i==0)
+                      return 0;
+    return 1;
+}
+
+
+llu SoD(llu num)
+{
+    llu sum=0;
+    llu upper=(llu)sqrt(num);
+    for(int i=2;i<=upper;i++)
+    {
+        llu temp=num;
+        if(num%i==0)
+        {
+            if(prime(i))
+            {
+                sum+=i;
+            }
+            temp=num/i;
+            if(temp!=i && prime(temp))
+            {
+                sum+=temp;
+            }
+        }
+    }
+    return sum;
+}
+
+llu NoD(llu num)
+{
+    llu count=0;
+    llu upper=(llu)sqrt(num);
+    for(int i=2;i<=upper;i++)
+    {
+        llu temp=num;
+        if(num%i==0)
+        {
+            if(prime(i))
+            {
+                count++;
+            }
+            temp=num/i;
+            if(temp!=i && prime(temp))
+            {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+
+llu solve(llu num)
+{
+    if(prime(num))
+        return 1;
+    else
+        return(solve(SoD(num))+NoD(num));
+}
+
+int main()
+{
+   int t;
+   cin>>t;
+   while(t--)
+   {
+       llu num;
+       cin>>num;
+       cout<<solve(num)<<endl;
+   }
+   return 0;
+}
