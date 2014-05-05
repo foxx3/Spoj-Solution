@@ -1,0 +1,32 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<algorithm>
+#include<vector>
+
+#define MOD 1000000007
+#define LL long long int
+
+int main()
+{
+        int t=1;
+        scanf("%d",&t);
+        while(t--)
+        {
+                LL n,sum=0,temp;
+                printf("\n");
+                scanf("%lld",&n);
+                for(int i=0;i<n;i++)
+                {
+                        scanf("%lld",&temp);
+                        sum+=temp;
+                        sum = sum%n;
+                }
+                if(sum==0)
+                        printf("YES\n");
+                else
+                        printf("NO\n");
+        }
+        return 0;
+}
