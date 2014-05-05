@@ -1,0 +1,25 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<algorithm>
+#include<vector>
+
+#define MOD 1000000007
+#define LL long long int
+
+int main()
+{
+        int t=1;
+        //scanf("%d",&t);
+        while(1)
+        {
+                int n,res;
+                scanf("%d",&n);
+                if(n==0)
+                        break;
+                res=(n*(n+1)*(2*n+1))/6;
+                printf("%d\n",res);
+        }
+        return 0;
+}
