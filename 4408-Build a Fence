@@ -1,0 +1,34 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<algorithm>
+#include<vector>
+
+bool cmp( int a, int b ) 
+{
+   return a > b;
+}
+
+#define MOD 1000000007
+#define PI 3.141592654
+#define TRUE 1
+#define FALSE 0
+#define LL long long int
+
+using namespace std;
+
+int main()
+{
+        int T=1;
+        //scanf("%d",&T);
+        while(TRUE)
+        {
+                double l;
+                cin>>l;
+                if(l==0.00)
+                        break;
+                printf("%.2lf\n",(l*l)/(2*PI));
+        }
+        return 0;
+}
