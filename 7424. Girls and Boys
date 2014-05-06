@@ -1,0 +1,46 @@
+#include<iostream>
+#include<cstdio>
+#include<cstring>
+#include<cmath>
+#include<algorithm>
+#include<vector>
+
+bool cmp( int a, int b ) 
+{
+   return a > b;
+}
+
+#define MOD 1000000007
+#define PI 3.141592654
+#define TRUE 1
+#define FALSE 0
+#define LL long long int
+
+using namespace std;
+
+int main()
+{
+        while(TRUE)
+        {
+                int g,b,res=0;
+                cin>>g>>b;
+                if(g==-1 && b==-1)
+                        break;
+                if(g>=b)
+                {
+                        b++;
+                        res = g/b;
+                        if(g%b)
+                                res++;
+                }
+                else
+                {
+                        g++;
+                        res = (b/g);
+                        if(b%g)
+                                res++;
+                }
+                cout<<res<<endl;
+        }
+        return 0;
+}
