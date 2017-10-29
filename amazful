@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+map<long long int,long long int>M;
+long long int amaze(long long int n)
+{
+    if(M[n]==0)
+    {
+        if(n==1|| n==2)
+            {M[n]=1;
+            return M[n];}
+        else
+            {M[n]=(2*amaze(n-1)+3*amaze(n-2))%1000000007;
+            return M[n]%1000000007;}
+    }
+    else
+        return M[n]%1000000007;
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    long int t;
+    M.clear();
+    cin>>t;
+    while(t--)
+    {
+        long long int n;
+        cin>>n;
+        cout<<amaze(n)%1000000007<<endl;
+    }
+}
